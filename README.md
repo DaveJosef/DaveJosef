@@ -1,5 +1,5 @@
 ### Hi there 👋! I'm José David and I'm student at IFPB, campus Cajazeiras 📚.
-## Check my repo for some projects I've loved 🫀 working on.
+## Check my repo for some projects I've loved 💓 working on.
 
 ![Github stats](https://github-readme-stats.vercel.app/api?username=DaveJosef&theme=nightowl&show_icons=true&count_private=true&hide=stars)
 
