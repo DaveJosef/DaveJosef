@@ -1,4 +1,4 @@
-### Hi there 👋
+### Hi there 👋! I'm José David and I'm student at IFPB, campus Cajazeiras.
 
 <!--
 **DaveJosef/DaveJosef** is a ✨ _special_ ✨ repository because its `README.md` (this file) appears on your GitHub profile.
