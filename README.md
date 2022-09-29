@@ -1,7 +1,39 @@
-### Hi there 👋! I'm José David and I'm student at IFPB, campus Cajazeiras 📚.
-## Check my repo for some projects I've loved 💓 working on.
+## Hi there 👋! I'm José David, Junior Dev.
+### Check my repo for some projects I've loved 💓 working on.
 
-![Github stats](https://github-readme-stats.vercel.app/api?username=DaveJosef&theme=nightowl&show_icons=true&count_private=true&hide=stars)
+- 😄 Pronouns: He | His | Him
+- 🌱 I’m currently learning POO with Java!
+
+<hr></hr>
+
+<div align="right">
+
+<a href="https://github.com/DaveJosef" >
+
+<img height="150em" src="https://github-readme-stats.vercel.app/api/top-langs/?username=DaveJosef&layout=compact&show_icons=true&theme=radical" alt="DaveJosef top languages" />
+
+<img height="150em"  src="https://github-readme-stats.vercel.app/api?username=DaveJosef&theme=nightowl&show_icons=true&count_private=true&hide=stars" alt="Github stats" />
+
+</a>
+
+</div>
+
+### 📫 Please feel free to contact me:
+
+<div align="center">
+
+[<img src="https://img.shields.io/badge/linkedin-%230077B5.svg?&style=for-the-badge&logo=linkedin&logoColor=white&link=https://www.linkedin.com/in/jos%C3%A9-david-de-oliveira-sousa-99bba4125/">](https://www.linkedin.com/in/jos%C3%A9-david-de-oliveira-sousa-99bba4125/)
+[<img src = "https://img.shields.io/badge/gmail-%23E4405F.svg?&style=for-the-badge&logo=gmail&logoColor=white&link=mailto:josedaaaaavid@gmail.com">](mailto:josedaaaaavid@gmail.com)
+
+</div>
+
+### Don't leave without a laugh! 😄
+<hr></hr>
+<div align="center">
+
+![Jokes Card](https://readme-jokes.vercel.app/api)
+
+</div>
 
 <!--
 **DaveJosef/DaveJosef** is a ✨ _special_ ✨ repository because its `README.md` (this file) appears on your GitHub profile.
@@ -17,3 +49,5 @@ Here are some ideas to get you started:
 - 😄 Pronouns: ...
 - ⚡ Fun fact: ...
 -->
+
+<!-- TODO: languages and skills -->
