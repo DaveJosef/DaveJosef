@@ -2,7 +2,7 @@
 ### Check my repo for some projects I've loved 💓 working on.
 
 - 😄 Pronouns: He | His | Him
-- 🌱 I’m currently learning POO with Java!
+- 🌱 I’m currently practicing Javascript on ReactJS!
 
 <hr></hr>
 
