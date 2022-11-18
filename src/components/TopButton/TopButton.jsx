@@ -61,7 +61,6 @@ function TopButton({ topBtnVisible }) {
                 document.documentElement.scrollTop = 0;
                 clearInterval(interval);
             }
-            console.log({interval});
         }, 1);
     }
     
