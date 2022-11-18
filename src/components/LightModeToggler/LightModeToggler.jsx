@@ -1,7 +1,6 @@
 import React from 'react';
-import { useEffect } from 'react';
 import { useRef } from 'react';
-import styled, { css } from 'styled-components';
+import styled from 'styled-components';
 import lightMode from '../../assets/icons/light_mode.png';
 import nightMode from '../../assets/icons/night_mode.png';
 import { Icon } from '../Icon/Icon';

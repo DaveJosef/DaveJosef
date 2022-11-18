@@ -2,7 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import LanguageSelect from '../../../components/LanguageSelect/LanguageSelect';
 import LightModeToggler from '../../../components/LightModeToggler/LightModeToggler';
-import { getString, MultiLanguageString, projects, sections } from '../../../utils/data/data';
+import { getString, projects, sections } from '../../../utils/data/data';
 import { colors } from '../../../utils/theme/theme';
 
 const MenuBox = styled.div`

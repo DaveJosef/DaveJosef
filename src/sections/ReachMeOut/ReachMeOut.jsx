@@ -5,7 +5,6 @@ import { Pane } from '../../components/Pane/Pane';
 import Section from '../../components/Section/Section';
 import { Title } from '../../components/Title/Title';
 import { getSection, MultiLanguageString } from '../../utils/data/data';
-import { colors } from '../../utils/theme/theme';
 
 function ReachMeOut({ language }) {
     const [state, handleSubmit] = useForm('xrgdypnj');

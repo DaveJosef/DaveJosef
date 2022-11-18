@@ -1,8 +1,5 @@
-import React, { useEffect } from 'react';
-import {getProject, getSection, MultiLanguageString, projects, sections} from '../../utils/data/data';
-import { getThumbs } from '../../utils/thumbnails/thumbnails';
-import top from '../../assets/icons/top.png';
-import { useRef } from 'react';
+import React from 'react';
+import {getProject, getSection, MultiLanguageString, projects } from '../../utils/data/data';
 import Project from '../../components/Project/Project';
 import { Pane } from '../../components/Pane/Pane';
 import { Title } from '../../components/Title/Title';
@@ -29,10 +26,6 @@ function Projects({ language, scrollTop, handleChangeBackground, isOpaque }) {
         "Meus Projetos", "My Projects"
     );
     const section = getSection(language, titles);
-
-    const filterProjectsBySkill = (skill) => {
-        return filteredProjects.filter((project) => project.tags.includes(skill.name));
-    }
 
     const handleReadMore = () => {
         setFilteredProjects(projects);
