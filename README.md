@@ -2,7 +2,7 @@
 ### Check my repo for some projects I've loved 💓 working on.
 
 - 😄 Pronouns: He | His | Him
-- 🌱 I’m currently practicing Javascript on ReactJS!
+- 🌱 I’m currently practicing Javascript on Angular!
 
 <hr></hr>
 
