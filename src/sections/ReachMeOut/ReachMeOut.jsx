@@ -24,7 +24,7 @@ function ReachMeOut({ language }) {
                 <input required type="email" name="email" id="email"/>
                 <label htmlFor="message">Mensagem: </label>
                 <textarea required type="text" name="message" id="message" rows="10" cols="40" style={{resize: 'none'}}></textarea>
-                <button type="submit">Enviar</button>
+                <button type="submit">{language !== "portuguese" ? "Send" : "Enviar"}</button>
             </Form>
         );
     }

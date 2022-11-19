@@ -45,6 +45,15 @@ const ContainerDiv = styled.div`
     p {
         margin-left: 2rem;
     }
+
+    @media screen and (max-height: 600px) {
+        flex-flow: row;
+        width: auto;
+        margin-left: 1.25rem;
+        padding-top: 7vw;
+        padding-left: 2rem;
+        padding-right: 2rem;
+    }
     
     @media screen and (max-width: 720px) {
 
@@ -56,7 +65,12 @@ const ContainerDiv = styled.div`
         p {
             margin-left: 0;
         }
-        
+            
+        nav {
+            display: flex;
+            justify-content: center;
+        }
+
     }
 
 `;
@@ -67,6 +81,11 @@ const HeaderDiv = styled.div`
     height: 100vh;
     display: flex;
     align-items: center;
+    
+    @media screen and (max-height: 600px) {
+        background-color: rgb(${props => props.theme.background});
+        background-image: none;
+    }
     
     @media screen and (max-width: 720px) {
 
@@ -92,6 +111,10 @@ const ProfileImg = styled.img`
     border-radius: 50%;
     margin: 1rem;
 
+    @media screen and (max-height: 600px) {
+        width: 20vh;
+    }
+
 `;
 
 export default function Header({ language, scrollTop, handleSwitchTheme, handleChangeLanguage, actualTheme }) {
@@ -116,22 +139,26 @@ export default function Header({ language, scrollTop, handleSwitchTheme, handleC
             <div>
                 <ProfileImg src='https://media-exp1.licdn.com/dms/image/C4E03AQF3r7PO-L4nKw/profile-displayphoto-shrink_800_800/0/1654561568665?e=1674086400&v=beta&t=riY8SrD3zJ51yn4P1mvWdg8hKwRpKdxQR9-ScLMOrpA' alt="Profile"/>
             </div>
-            <p>{persona.presentation}</p>
-            <p>{persona.objective}</p>
-            <p>{persona.currentlyDoing}</p>
-            <nav>
-                <ContactList>
-                    <li>
-                        <IconAnchor href="https://github.com/DaveJosef" src={github} alt="Github"></IconAnchor>
-                    </li>
-                    <li>
-                        <IconAnchor href="https://linkedin.com/in/josé-david-de-oliveira-sousa-99bba4125/" src={linkedin} alt="Linkedin"></IconAnchor>
-                    </li>
-                    <li>
-                        <IconAnchor href="mailto:josedaaaaavid@gmail.com" src={email} alt="E-mail"></IconAnchor>
-                    </li>
-                </ContactList>
-            </nav>
+            <div>
+                <p>{persona.presentation}</p>
+                <p>{persona.objective}</p>
+            </div>
+            <div>
+                <p>{persona.currentlyDoing}</p>
+                <nav>
+                    <ContactList>
+                        <li>
+                            <IconAnchor href="https://github.com/DaveJosef" src={github} alt="Github"></IconAnchor>
+                        </li>
+                        <li>
+                            <IconAnchor href="https://linkedin.com/in/josé-david-de-oliveira-sousa-99bba4125/" src={linkedin} alt="Linkedin"></IconAnchor>
+                        </li>
+                        <li>
+                            <IconAnchor href="mailto:josedaaaaavid@gmail.com" src={email} alt="E-mail"></IconAnchor>
+                        </li>
+                    </ContactList>
+                </nav>
+            </div>
         </ContainerDiv>
     </HeaderDiv>
 

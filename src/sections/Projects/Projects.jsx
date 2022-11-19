@@ -45,7 +45,7 @@ function Projects({ language, scrollTop, handleChangeBackground, isOpaque }) {
                             <Project scrollTop={scrollTop} handleChangeBackground={handleChangeBackground} project={getProject(language, el)} index={index}></Project>
                         )
                     }
-                    <ReadMoreButton handleReadMore={handleReadMore} />
+                    <ReadMoreButton language={language} handleReadMore={handleReadMore} />
                 </ProjectsList>
                 {section.conclusion}
             </Pane>

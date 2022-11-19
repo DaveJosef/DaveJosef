@@ -449,7 +449,7 @@ const sections = [
                 <p>O que achou desta página? Deixe-me saber. Se você tem alguma sugestão de melhoria ou gostou de meus serviços, envie-me uma mensagem no formulário abaixo, será um prazer ouví-lo. Mas antes, confira meu currículo, ele está bem completo e pode responder previamente alguma de suas dúvidas <Anchor href={persona.cvDownloadLink} download target="_blank" rel="noreferrer"><img src={download} alt="Download"/> Baixar meu currículo</Anchor>.</p>
             </>,
             <>
-                <p>What did you think of this page? Let me know. If you have any suggestions for improvement or liked my services, send me a message in the form below, it will be a pleasure to hear you. But first, check out my CV, it is pretty complete and can answer previously some of your questions <Anchor href={persona.cvDownloadLink} download target="_blank" rel="noreferrer"><img src={download} alt="Download"/> Baixar meu currículo</Anchor>.</p>
+                <p>What did you think of this page? Let me know. If you have any suggestions for improvement or liked my services, send me a message in the form below, it will be a pleasure to hear you. But first, check out my CV, it is pretty complete and can answer previously some of your questions <Anchor href={persona.cvDownloadLink} download target="_blank" rel="noreferrer"><img src={download} alt="Download"/> Download my CV</Anchor>.</p>
             </>
         ),
         conclusion: new MultiLanguageString(

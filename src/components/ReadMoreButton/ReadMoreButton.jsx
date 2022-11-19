@@ -45,7 +45,7 @@ const Button = styled.div`
 
 `;
 
-function ReadMoreButton({ handleReadMore }) {
+function ReadMoreButton({ handleReadMore, language }) {
 
     const checkBoxRef = useRef(null);
     const [checked, setChecked] = useState(false);
@@ -60,7 +60,7 @@ function ReadMoreButton({ handleReadMore }) {
         {!checked && 
             <Button>
                 <label onClick={handleClick} htmlFor="read">
-                    Ver mais
+                    {language !== "portuguese" ? "See more" : "Ver mais"}
                 </label>
                 <input ref={checkBoxRef} type="checkbox" name="read" id="read" />
             </Button>

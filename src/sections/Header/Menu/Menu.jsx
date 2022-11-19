@@ -11,13 +11,18 @@ const MenuBox = styled.div`
     background-color: rgb(${props => props.theme.background});
     display: flex;
     width: 100%;
-    height: 200px;
+    height: fit-content;
     justify-content: space-between;
     align-items: center;
     z-index: 99;
-    flex-wrap: wrap;
+    flex-wrap: nowrap;
     transition: 400ms ease-in-out 0s;
+    border-bottom: 2px solid rgb(${props => props.theme.foreground});
 
+    @media screen and (max-height: 600px) {
+        padding: calc(2.5rem + 2vh) 0 2vh 0;
+    }
+    
     @media screen and (max-width: 720px) {
 
         height: fit-content;
@@ -25,6 +30,7 @@ const MenuBox = styled.div`
         flex-direction: column;
         align-items: center;
         padding: 0;
+        border-bottom: none;
 
     }
 
@@ -173,20 +179,16 @@ const Nav = styled.nav`
     background-color: rgb(${props => props.theme.background});
     color: rgb(${props => props.theme.foreground});
     visibility: visible;
-    height: 2.5vw;
     display: flex;
     flex-flow: row;
-    font-size: 2rem;
+    font-size: 1.5rem;
     font-family: 'Josefin Sans', sans-serif;
-    padding: calc(2.5rem + 5vh) 0 5vh 0;
     align-items: center;
     transition: 400ms ease-in-out 0s;
 
     & > ul {
-        position: absolute;
         display: flex;
         padding-left: 3rem;
-        line-height: 2.6rem;
         align-items: center;
     }
 
@@ -254,6 +256,7 @@ const SettingsDiv = styled.div`
     align-items: center;
     justify-content: space-evenly;
     padding: 1rem;
+    background-color: inherit;
 
     select {
         height: 2rem;
