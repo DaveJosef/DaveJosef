@@ -382,7 +382,7 @@ const sections = [
         ),
         conclusion: new MultiLanguageString(
             <>
-                <p>Combina bem às suas necessidades? Deixe-me saber <HollowAnchor>Entrar em Contato</HollowAnchor></p>
+                <p>Combina bem às suas necessidades? Deixe-me saber <HollowAnchor href='#reachmeout'>Entrar em Contato</HollowAnchor></p>
                 <p>Deseja baixar o meu Currículo? <Anchor href={persona.cvDownloadLink} download target="_blank" rel="noreferrer"><Icon src={download} alt="Download"/> Baixar meu currículo</Anchor></p>
             </>,
             <>
