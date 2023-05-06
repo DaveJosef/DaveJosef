@@ -10,6 +10,7 @@ import { Title } from '../../components/Title/Title';
 import IconAnchor from '../../components/IconAnchor/IconAnchor';
 import Table from '../../components/Table/Table';
 import Section from '../../components/Section/Section';
+import profileImg from '../../assets/profile-pic/profile-pic.jpg';
 
 function AboutMe({ language }) {
 
@@ -87,7 +88,7 @@ function AboutMe({ language }) {
             <WrapArticle headerContent={
                 <>
                     <div className='profile'>
-                        <img src='https://media-exp1.licdn.com/dms/image/C4E03AQF3r7PO-L4nKw/profile-displayphoto-shrink_800_800/0/1654561568665?e=1674086400&v=beta&t=riY8SrD3zJ51yn4P1mvWdg8hKwRpKdxQR9-ScLMOrpA' alt="Profile"/>
+                        <img src={profileImg} alt="Profile"/>
                     </div>
                     <nav>
                         <ul>

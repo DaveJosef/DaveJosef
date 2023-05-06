@@ -7,6 +7,7 @@ import styled, { css } from 'styled-components';
 import { useRef } from 'react';
 import IconAnchor from '../../components/IconAnchor/IconAnchor';
 import Menu from './Menu/Menu';
+import profileImg from '../../assets/profile-pic/profile-pic.jpg';
 
 const ContactList = styled.ul`
 
@@ -137,7 +138,7 @@ export default function Header({ language, scrollTop, handleSwitchTheme, handleC
         <Menu handleChangeLanguage={handleChangeLanguage} handleSwitchTheme={handleSwitchTheme} actualTheme={actualTheme} language={language}></Menu>
         <ContainerDiv>
             <div>
-                <ProfileImg src='https://media-exp1.licdn.com/dms/image/C4E03AQF3r7PO-L4nKw/profile-displayphoto-shrink_800_800/0/1654561568665?e=1674086400&v=beta&t=riY8SrD3zJ51yn4P1mvWdg8hKwRpKdxQR9-ScLMOrpA' alt="Profile"/>
+                <ProfileImg src={profileImg} alt="Profile"/>
             </div>
             <div>
                 <p>{persona.presentation}</p>
