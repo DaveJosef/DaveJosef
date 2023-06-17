@@ -1,16 +1,16 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import Expand from '../../components/Expand/Expand';
 import WrapArticle from '../../components/WrapArticle/WrapArticle';
 import { getPersona, getSection, getString, MultiLanguageString } from '../../utils/data/data';
-import github from '../../assets/icons/github.png';
-import linkedin from '../../assets/icons/linkedin.png';
-import email from '../../assets/icons/email.png';
+import { ReactComponent as MailIcon } from '../../assets/icons/svg/envelope.svg';
+import { ReactComponent as GithubIcon } from '../../assets/icons/svg/github.svg';
+import { ReactComponent as LinkedinIcon } from '../../assets/icons/svg/linkedin.svg';
 import { Pane } from '../../components/Pane/Pane';
 import { Title } from '../../components/Title/Title';
 import IconAnchor from '../../components/IconAnchor/IconAnchor';
 import Table from '../../components/Table/Table';
 import Section from '../../components/Section/Section';
-import profileImg from '../../assets/profile-pic/profile-pic.jpg';
+import { useAnimate, useInView, useReducedMotion } from 'framer-motion';
 
 function AboutMe({ language }) {
 
@@ -80,26 +80,44 @@ function AboutMe({ language }) {
         return `${f.startAt.getFullYear()} - ${f.finishAt.getFullYear()}`;
     }
 
+    const [scope, animate] = useAnimate();
+    const isInView = useInView(scope);
+    const reducedMotion = useReducedMotion();
+
+    useEffect(() => {
+        if (isInView) {
+            animate(scope.current, { opacity: 1, transform: 'none' });
+        } else {
+            animate(scope.current, { opacity: 0, transform: 'translateX(-200px)' });
+        }
+    }, [isInView]);
+
   return (
     <Section id="aboutme">
-        <Pane>
+        <Pane ref={scope} reducedMotion={reducedMotion}>
             <Title>{section.title}</Title>
             {section.introduction}
             <WrapArticle headerContent={
                 <>
                     <div className='profile'>
-                        <img src={profileImg} alt="Profile"/>
+                        <img src='https://res.cloudinary.com/dloygzh7o/image/upload/v1685816945/perfil-cortado-removebg_m4vdks.png' alt="Profile"/>
                     </div>
                     <nav>
                         <ul>
                             <li>
-                                <IconAnchor className="" href={persona.githubLink} target="_blank" rel='noreferrer' src={github} alt="Github"></IconAnchor>
+                                <IconAnchor className="" href={persona.githubLink} target="_blank" rel='noreferrer' alt="Github">
+                                    <GithubIcon />
+                                </IconAnchor>
                             </li>
                             <li>
-                                <IconAnchor className="" href={persona.linkedinLink} target="_blank" rel='noreferrer' src={linkedin} alt="Linkedin"></IconAnchor>
+                                <IconAnchor className="" href={persona.linkedinLink} target="_blank" rel='noreferrer' alt="Linkedin">
+                                    <LinkedinIcon />
+                                </IconAnchor>
                             </li>
                             <li>
-                                <IconAnchor className="" href={"mailto:" + persona.email} target="_blank" rel='noreferrer' src={email} alt="E-mail"></IconAnchor>
+                                <IconAnchor className="" href={"mailto:" + persona.email} target="_blank" rel='noreferrer' alt="E-mail">
+                                    <MailIcon />
+                                </IconAnchor>
                             </li>
                         </ul>
                     </nav>
@@ -113,7 +131,7 @@ function AboutMe({ language }) {
                 <Expand title={getTopic(1).title} subtitle={getTopic(1).subtitle}>
                     <ol>
                         {persona.background.map(
-                            f => <li style={{display: "flex"}}>
+                            (f, index) => <li key={index} style={{display: "flex"}}>
                                 <div>
                                     <h4>{getString(f.name, language) + " - " + getFormationDate(f)}</h4>
                                     <p style={{marginLeft: "1rem"}}>{f.location}

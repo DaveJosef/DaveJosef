@@ -1,19 +1,16 @@
-import thumb1 from '../../assets/projects/thumbnails/mariomemorygame.jpg';
-import thumb2 from '../../assets/projects/thumbnails/githubfront.png';
-import thumb3 from '../../assets/projects/thumbnails/todoapp.png';
 
 const thumbs = [
     {
         name: "mariomemorygame",
-        thumb: thumb1,
+        thumb: "https://res.cloudinary.com/dloygzh7o/image/upload/v1685832177/mariomemorygame_ftbdjg.jpg",
     },
     {
         name: "githubfront",
-        thumb: thumb2,
+        thumb: "https://res.cloudinary.com/dloygzh7o/image/upload/v1685832177/githubfront_bjejby.png",
     },
     {
         name: "todoapp",
-        thumb: thumb3,
+        thumb: "https://res.cloudinary.com/dloygzh7o/image/upload/v1685832177/todoapp_taffup.png",
     },
 ];
 

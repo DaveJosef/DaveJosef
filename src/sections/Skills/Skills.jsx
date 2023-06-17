@@ -1,4 +1,5 @@
-import React from 'react';
+import React, { useEffect } from 'react';
+import { useAnimate, useInView } from 'framer-motion';
 import styled from 'styled-components';
 import { Icon } from '../../components/Icon/Icon';
 import { Pane } from '../../components/Pane/Pane';
@@ -121,7 +122,7 @@ function Skills({ language }) {
     const getTimesMostPracticed = () => 2;
 
     const mapSkill = (el, index) => 
-        <li>
+        <li key={index}>
             <div className="skill" key={index + "-" + el.name}>
                 {
                     el.softSkill ? <Icon src={getURL(el)} alt={el.name}/> : 
@@ -133,9 +134,20 @@ function Skills({ language }) {
             </div>
         </li>
 
+    const [scope, animate] = useAnimate();
+    const inView = useInView(scope);
+
+    useEffect(() => {
+        if (inView) {
+            animate(scope.current, { opacity: 1, transform: 'none' });
+        } else {
+            animate(scope.current, { opacity: 0, transform: 'translateX(-200px)' });
+        }
+    }, [inView]);
+
   return (
     <Section className="skills" id='skills'>
-        <Pane>
+        <Pane ref={scope}>
             <Title>{section.title}</Title>
             {section.introduction}
             <SkillList>

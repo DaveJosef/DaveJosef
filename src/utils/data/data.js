@@ -44,7 +44,7 @@ const persona = {
     ),
     githubLink: "https://github.com/DaveJosef",
     linkedinLink: "https://www.linkedin.com/in/jos%C3%A9-david-de-oliveira-sousa-99bba4125/",
-    cvDownloadLink: "https://drive.google.com/uc?export=download&id=1oLxTnRhnKa_NDxRQqia-MRnzaW-FtG9S",
+    cvDownloadLink: "https://drive.google.com/uc?export=download&id=1ZE6VNWZZ_7-xk1la-WdiJJF3hCK2_4Ct",
     email: "josedaaaaavid@gmail.com",
     background: [
         {

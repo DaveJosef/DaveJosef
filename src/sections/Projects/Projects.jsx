@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Fragment } from 'react';
 import {getProject, getSection, MultiLanguageString, projects } from '../../utils/data/data';
 import Project from '../../components/Project/Project';
 import { Pane } from '../../components/Pane/Pane';
@@ -7,6 +7,9 @@ import ReadMoreButton from '../../components/ReadMoreButton/ReadMoreButton';
 import { useState } from 'react';
 import Section from '../../components/Section/Section';
 import styled from 'styled-components';
+import { useScroll, useMotionValueEvent, useAnimate, useInView } from 'framer-motion';
+import { useRef } from 'react';
+import { useEffect } from 'react';
 
 const ProjectsList = styled.ul`
 
@@ -21,6 +24,17 @@ const ProjectsList = styled.ul`
 function Projects({ language, scrollTop, handleChangeBackground, isOpaque }) {
 
     const [filteredProjects, setFilteredProjects] = useState(projects.slice(0, 2));
+    const [scope, animate] = useAnimate();
+    const inView = useInView(scope);
+
+    useEffect(() => {
+        if (inView) {
+            animate(scope.current, { opacity: 1, transform: 'none' });
+        } else {
+            animate(scope.current, { opacity: 0, transform: 'translateX(-200px)' });
+            handleChangeBackground("");
+        }
+    }, [inView]);
 
     const titles = new MultiLanguageString(
         "Meus Projetos", "My Projects"
@@ -35,14 +49,16 @@ function Projects({ language, scrollTop, handleChangeBackground, isOpaque }) {
 
     <>
         <Section className="projects" id='projects'>
-            <Pane className={"".concat(isOpaque ? "" : "transparent")}>
+            <Pane ref={scope} className={"".concat(isOpaque ? "" : "transparent")}>
                 <Title>{section.title}</Title>
                 {section.introduction}
                 <ProjectsList>
                     {
                         filteredProjects.map(
                             (el, index) => 
-                            <Project scrollTop={scrollTop} handleChangeBackground={handleChangeBackground} project={getProject(language, el)} index={index}></Project>
+                            <Fragment key={index}>
+                                <Project scrollTop={scrollTop} handleChangeBackground={handleChangeBackground} project={getProject(language, el)} index={index} />
+                            </Fragment>
                         )
                     }
                     <ReadMoreButton language={language} handleReadMore={handleReadMore} />

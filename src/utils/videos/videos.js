@@ -1,19 +1,16 @@
-import video1 from '../../assets/projects/githubfront.mp4';
-import video2 from '../../assets/projects/mariomemorygame.mp4';
-import video3 from '../../assets/projects/todoapp.mp4';
 
 const videos = [
     {
         name: "githubfront",
-        video: video1,
+        video: "https://res.cloudinary.com/dloygzh7o/video/upload/v1685832150/githubfront_qiegaq.mp4",
     },
     {
         name: "mariomemorygame",
-        video: video2,
+        video: "https://res.cloudinary.com/dloygzh7o/video/upload/v1685832150/mariomemorygame_t3hqqh.mp4",
     },
     {
         name: "todoapp",
-        video: video3,
+        video: "https://res.cloudinary.com/dloygzh7o/video/upload/v1685832168/todoapp_o27exz.mp4",
     },
 ];
 

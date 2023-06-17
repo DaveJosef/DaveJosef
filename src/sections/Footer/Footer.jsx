@@ -1,14 +1,4 @@
 import React from 'react';
-import download from '../../assets/icons/download.png';
-import email from '../../assets/icons/email.png';
-import github from '../../assets/icons/github.png';
-import linkedin from '../../assets/icons/linkedin.png';
-import play from '../../assets/icons/play.png';
-import communication from '../../assets/icons/skills/communication.png';
-import team from '../../assets/icons/skills/team.png';
-import top from '../../assets/icons/top.png';
-import lightMode from '../../assets/icons/light_mode.png';
-import nightMode from '../../assets/icons/night_mode.png';
 import styled from 'styled-components';
 import { colors } from '../../utils/theme/theme';
 import { getPersona } from '../../utils/data/data';
@@ -92,32 +82,17 @@ function Footer({ language }) {
                             <ul style={{display: "flex"}}>
                                 <li style={{display: "flex",marginLeft: "1rem"}}><a href={persona.githubLink}>Github</a></li>
                                 <li style={{display: "flex",marginLeft: "1rem"}}><a href={persona.linkedinLink}>Linkedin</a></li>
-                                <li style={{display: "flex",marginLeft: "1rem"}}><a href={`mailto:${persona.email}`}>E-mail</a></li>
+                                <li style={{display: "flex",marginLeft: "1rem"}}><a href={`mailto:${persona.email}?subject=Contato%20referente%20a%20vagas%20de%20desenvolvedor&body=Ol%C3%A1%2C%20Jos%C3%A9%20David.%20Estou%20entrando%20em%20contato%20atrav%C3%A9s%20do%20seu%20portf%C3%B3lio%20para%20falarmos%20mais%20sobre%20neg%C3%B3cios.`}>E-mail</a></li>
                             </ul>
                         </nav>
                     </RowBlock>
                 </Row>
                 <Row>
                     <RowBlock>
-                        <h3>{language !== "portuguese" ? "Icons credits" : "Créditos dos Ícones"}</h3>
+                        <h3>{language !== "portuguese" ? "Credits" : "Créditos"}</h3>
                         <p>
-                        {language !== "portuguese" ? "Icons by " : "Ícones por "}
-                            <a href="https://www.flaticon.com/free-icons/linkedin" title="linkedin icons"><img src={linkedin} alt="Linkedin"/> Linkedin - Freepik</a>, 
-                            <a href="https://www.flaticon.com/free-icons/github" title="github icons"><img src={github} alt="Github"/> Github - Pixel perfect</a>, 
-                            <a href="https://www.flaticon.com/free-icons/email" title="email icons"><img src={email} alt="Email"/> Email - iconixar</a>, 
-                            <a href="https://www.flaticon.com/free-icons/play-button" title="play button icons"><img src={play} alt="Play"/> Play button - Freepik</a>, 
-                            <a href="https://www.flaticon.com/free-icons/download" title="download icons"><img src={download} alt="Download"/> Download - kosonicon</a>, 
-                            <a href="https://www.flaticon.com/free-icons/dialogue" title="dialogue icons"><img src={communication} alt="Download"/> Dialogue - Ilham Fitrotul Hayat</a>, 
-                            <a href="https://www.flaticon.com/free-icons/team" title="team icons"><img src={team} alt="Download"/> Team - IconsBox</a>, 
-                            <a href="https://www.flaticon.com/free-icons/up-arrow" title="up arrow icons"><img src={top} alt="Top" /> Up arrow - Ilham Fitrotul Hayat</a>, 
-                            <a href="https://www.flaticon.com/free-icons/light-dark" title="light-dark icons"><img src={lightMode} alt="light mode" />Light-dark - zafdesign</a>, 
-                            <a href="https://www.flaticon.com/free-icons/dark" title="dark icons"><img src={nightMode} alt="dark mode" />Dark - Komar Dews</a>, 
-                            <a href="https://www.flaticon.com/br/icones-gratis/livro" title="livro ícones">Livro - Freepik</a>{language !== "portuguese" ? " on Flaticon" : " no Flaticon"}
+                        {language !== "portuguese" ? "Icons by Flaticon and Vector Logo Zone" : "Ícones por Flaticon e Vector Logo Zone"}
                         </p>
-                    </RowBlock>
-                    <RowBlock>
-                        <h3>{language !== "portuguese" ? "Skills Icons credits" : "Créditos dos Ícones das Habilidades"}</h3>
-                        <p><a href="https://www.vectorlogo.zone/">{language !== "portuguese" ? "Skill Icons from Vector Logo Zone." : "Ícones das habilidades tirados de Vector Logo Zone."}</a></p>
                     </RowBlock>
                 </Row>
                 <Row>

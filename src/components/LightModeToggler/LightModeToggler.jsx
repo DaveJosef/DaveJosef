@@ -1,9 +1,8 @@
 import React from 'react';
 import { useRef } from 'react';
 import styled from 'styled-components';
-import lightMode from '../../assets/icons/light_mode.png';
-import nightMode from '../../assets/icons/night_mode.png';
-import { Icon } from '../Icon/Icon';
+import { ReactComponent as MoonIcon } from '../../assets/icons/svg/moon.svg';
+import { ReactComponent as SunIcon } from '../../assets/icons/svg/sun.svg';
 
 const Button = styled.div`
 
@@ -30,6 +29,23 @@ const Button = styled.div`
         z-index: -9;
     }
 
+    svg {
+        circle.svg-builder-circle {
+            fill: rgb(${props => props.theme.foreground});
+        }
+        path.svg-stroke-primary {
+            stroke: rgb(${props => props.theme.background});
+        }
+    }
+    svg:hover {
+        circle.svg-builder-circle {
+            fill: rgb(${props => props.theme.background});
+        }
+        path.svg-stroke-primary {
+            stroke: rgb(${props => props.theme.foregroundB});
+        }
+    }
+
 `;
 
 function LightModeToggler({ handleToggleMode, mode }) {
@@ -40,14 +56,10 @@ function LightModeToggler({ handleToggleMode, mode }) {
         handleToggleMode(checkBoxRef.current.checked);
     }
 
-    const getSrc = () => {
-        return mode === "DARK" ? lightMode : nightMode;
-    }
-
   return (
     <Button>
         <label onClick={handleClick} htmlFor="light-mode">
-            <Icon src={getSrc()} alt="Light mode" />
+            {mode === "DARK" ? <SunIcon /> : <MoonIcon />}
         </label>
         <input ref={checkBoxRef} type="checkbox" name="light-mode" id="light-mode" />
     </Button>

@@ -283,7 +283,7 @@ function Menu({ language, handleSwitchTheme, handleChangeLanguage, actualTheme }
                         <details>
                             <summary>{getString(sections[1].title, language)}</summary>
                             <ul>
-                                {projects.map(project => <li><a href={`#${project.assetsName}`}>{project.name[language]}</a></li>)}
+                                {projects.map((project, index) => <li key={index}><a href={`#${project.assetsName}`}>{project.name[language]}</a></li>)}
                             </ul>
                         </details>
                     </li>

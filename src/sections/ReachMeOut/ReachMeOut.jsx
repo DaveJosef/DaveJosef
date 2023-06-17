@@ -1,5 +1,6 @@
 import { useForm } from '@formspree/react';
-import React from 'react';
+import React, { useEffect } from 'react';
+import { useAnimate, useInView } from 'framer-motion';
 import Form from '../../components/Form/Form';
 import { Pane } from '../../components/Pane/Pane';
 import Section from '../../components/Section/Section';
@@ -11,7 +12,7 @@ function ReachMeOut({ language }) {
 
     const FormComponent = () => {
         if (state.succeeded) {
-            const submissionString = language === 'portuguese' ? "Obrigado por sua submissão!" : "Thanks for your submission!"
+            const submissionString = language === 'portuguese' ? "Obrigado pelo envio!" : "Thanks for your submission!"
             return (
                 <p style={{fontSize: "1.75rem"}}>{submissionString}</p>
             );
@@ -34,12 +35,23 @@ function ReachMeOut({ language }) {
     );
     const section = getSection(language, titles);
 
+    const [scope, animate] = useAnimate();
+    const inView = useInView(scope);
+
+    useEffect(() => {
+        if (inView) {
+            animate(scope.current, { opacity: 1, transform: 'none' });
+        } else {
+            animate(scope.current, { opacity: 0, transform: 'translateX(-200px)' });
+        }
+    }, [inView]);
+
     return (
         <Section className="reachMeOut" id='reachmeout'>
-            <Pane>
+            <Pane ref={scope}>
                 <Title>{section.title}</Title>
                 {section.introduction}
-                <FormComponent></FormComponent>
+                <FormComponent />
                 {section.conclusion}
             </Pane>
         </Section>

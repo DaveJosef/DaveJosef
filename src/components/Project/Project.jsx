@@ -1,51 +1,35 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import WrapArticle from '../../components/WrapArticle/WrapArticle';
-import github from '../../assets/icons/github.png';
-import linkedin from '../../assets/icons/linkedin.png';
-import preview from '../../assets/icons/play.png';
-import download from '../../assets/icons/download.png';
+import { ReactComponent as GithubIcon } from '../../assets/icons/svg/github.svg';
+import { ReactComponent as LinkedinIcon } from '../../assets/icons/svg/linkedin.svg';
+import { ReactComponent as PlayIcon } from '../../assets/icons/svg/play.svg';
+import { ReactComponent as DownloadIcon } from '../../assets/icons/svg/download.svg';
 import Expand from '../../components/Expand/Expand';
 import { getVideo } from '../../utils/videos/videos';
 import { getTag } from '../../utils/data/data';
 import { useRef } from 'react';
 import { getThumbs } from '../../utils/thumbnails/thumbnails';
 import styled from 'styled-components';
-import { Icon } from '../Icon/Icon';
+import { useScroll, useMotionValueEvent } from 'framer-motion';
+import IconAnchor from '../IconAnchor/IconAnchor';
 
 const ListItem = styled.li`
     list-style: none;
 `;
 
 function Project({ project, index, handleChangeBackground, scrollTop }) {
+
     const projectRef = useRef(null);
-
-    const isOutsideBottom = (element) => {
-        const boundingRect = element.getBoundingClientRect();
-
-        return boundingRect.bottom > window.innerHeight;
-    }
-
-    const isOutsideTop = (element) => {
-        const boundingRect = element.getBoundingClientRect();
-
-        return boundingRect.top < 0;
-    }
-
-    const isVisible = (element) => {
-        const boundingRect = element.getBoundingClientRect();
-
-        return boundingRect.top > 0 && boundingRect.bottom < window.innerHeight;
-    }
+    const [isInView, setIsInView] = useState(false);
+    const { scrollYProgress } = useScroll({ target: projectRef, offset: ["end end", "start start"] });
+    useMotionValueEvent(scrollYProgress, "change", (latest) => {
+        setIsInView(latest > 0 && latest < 1);
+    })
 
     const detectBackgroundUpdate = () => {
-        let element = projectRef.current;
-        let image = undefined;
-        if (isVisible(element)) {
-            image = getThumbs(project) ? getThumbs(project).thumb : "";
+        if (isInView) {
+            let image = getThumbs(project) ? getThumbs(project).thumb : "";
             handleChangeBackground(image);
-        } else if ((element.nextSibling && !element.nextSibling.nextSibling && isOutsideTop(element))
-         || (index === 0 && isOutsideBottom(element))) {
-            handleChangeBackground("");
         }
     }
 
@@ -70,22 +54,30 @@ function Project({ project, index, handleChangeBackground, scrollTop }) {
                     <ul>
                         {!project.githubLink ? <></> : 
                             <li>
-                                <a className="" href={project.githubLink} target="_blank" rel='noreferrer'><Icon src={github} alt="Github"/></a>
+                                <IconAnchor className="" href={project.githubLink} target="_blank" rel='noreferrer'>
+                                    <GithubIcon />
+                                </IconAnchor>
                             </li>
                         }
                         {!project.linkedinLink ? <></> : 
                             <li>
-                                <a className="" href={project.linkedinLink} target="_blank" rel='noreferrer'><Icon src={linkedin} alt="Linkedin"/></a>
+                                <IconAnchor className="" href={project.linkedinLink} target="_blank" rel='noreferrer'>
+                                    <LinkedinIcon />
+                                </IconAnchor>
                             </li>
                         }
                         {!project.previewLink ? <></> : 
                             <li>
-                                <a className="" href={project.previewLink} target="_blank" rel='noreferrer'><Icon src={preview} alt="Preview"/></a>
+                                <IconAnchor className="" href={project.previewLink} target="_blank" rel='noreferrer'>
+                                    <PlayIcon />
+                                </IconAnchor>
                             </li>
                         }
                         {!project.downloadLink ? <></> : 
                             <li>
-                                <a className="" href={project.downloadLink} download target="_blank" rel='noreferrer'><Icon src={download} alt="Download"/></a>
+                                <IconAnchor className="" href={project.downloadLink} download target="_blank" rel='noreferrer'>
+                                    <DownloadIcon />
+                                </IconAnchor>
                             </li>
                         }
                     </ul>

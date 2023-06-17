@@ -2,8 +2,10 @@ import React from 'react';
 import topIcon from '../../assets/icons/top.png';
 import styled from 'styled-components';
 import { colors } from '../../utils/theme/theme';
+import { AnimatePresence, motion, useMotionValueEvent, useScroll } from 'framer-motion';
+import { useState } from 'react';
 
-const Div = styled.div`
+const Div = styled(motion.div)`
 
     &#top {
         background-color: rgb(${props => props.theme.colorA});
@@ -50,7 +52,43 @@ const Img = styled.img`
     
 `;
 
-function TopButton({ topBtnVisible }) {
+const variants = {
+    visible: {
+        position: 'fixed',
+        x: '80vw',
+        y: '80vh',
+        left: 0,
+        top: 0,
+        width: '8vw',
+        height: '8vw',
+        opacity: 1,
+        scale: 1,
+        transition: {
+            duration: .3,
+            ease: [0.99, 0.42, 0.05, 0.71],
+            type: 'spring',
+        }
+    },
+    invisible: {
+        position: 'fixed',
+        x: '80vw',
+        y: '150vh',
+        opacity: 0,
+        scale: 0.5,
+        transition: {
+            duration: 1,
+            ease: [0.99, 0.42, 0.05, 0.71],
+            type: 'spring',
+        }
+    }
+};
+
+function TopButton() {
+    const {scrollYProgress} = useScroll();
+    const [visible, setVisible] = useState(false);
+    useMotionValueEvent(scrollYProgress, "change", (latest) => {
+        setVisible(latest > 0);
+    })
 
     function scrollTop() {
         const interval = setInterval(() => {
@@ -65,9 +103,15 @@ function TopButton({ topBtnVisible }) {
     }
     
   return (
-    <Div className={topBtnVisible ? "top-visible" : ""} onClick={scrollTop} id='top'>
-        <Img src={topIcon} alt='Rolar ao topo' />
-    </Div>
+    <AnimatePresence>
+        {
+            visible ? 
+            <Div key={"change"} className='top-visible' variants={variants} initial={'invisible'} animate={'visible'} exit={'invisible'} onClick={scrollTop} id='top'>
+                <Img src={topIcon} alt='Rolar ao topo' />
+            </Div> : 
+            <></>
+        }
+    </AnimatePresence>
   );
 }
 

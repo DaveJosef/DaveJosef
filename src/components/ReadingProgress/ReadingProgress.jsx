@@ -1,36 +1,34 @@
 import React from 'react';
 import styled from 'styled-components';
 import { colors } from '../../utils/theme/theme';
+import { motion, useScroll, useSpring } from 'framer-motion';
 
-const Progress = styled.progress`
-
-  &#reading::-webkit-progress-value {
-    background: rgb(${props => props.theme.colorA});
-  }
-
-  &#reading::-webkit-progress-bar {
-    background-color: rgb(${props => props.theme.colorB});
-  }
-
-  &#reading {
-    position: fixed;
-    top: 0;
-    width: 100vw;
-    height: 2rem;
-    appearance: none;
-    -webkit-appearance: none;
-    -moz-appearance: none;
-    border: none;
-    background-color: rgb(${props => props.theme.colorA});
-    z-index: 999;
-    box-shadow: 0px .5rem rgb(${colors.DARK});
-  }
-
+const ProgressBG = styled.div`
+  height: 2rem;
+  background: rgb(${props => props.theme.colorB});
+  z-index: 999;
+  box-shadow: 0px .5rem rgb(${colors.DARK});
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  transform-origin: 0%;
 `;
 
-function ReadingProgress({ progress }) {
+const ProgressNew = styled(motion.div)`
+  background: rgb(${props => props.theme.colorA});
+  transform-origin: inherit;
+  height: inherit;
+`;
+
+function ReadingProgress() {
+  const {scrollYProgress} = useScroll();
+  const scaleX = useSpring(scrollYProgress)
+
   return (
-    <Progress id='reading' max="100" value={progress}></Progress>
+    <ProgressBG>
+      <ProgressNew style={{scaleX}} />
+    </ProgressBG>
   );
 }
 

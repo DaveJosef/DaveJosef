@@ -28,7 +28,7 @@ const StyledForm = styled.form`
     }
 
     input, label, textarea {
-        width: 60vw;
+        min-width: 100%;
     }
 
     input#message {

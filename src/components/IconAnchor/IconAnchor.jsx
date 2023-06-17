@@ -12,6 +12,41 @@ const Anchor = styled.a`
         width: 32px;
     }
 
+    svg {
+        height: 32px;
+        fill: rgb(${props => props.theme.foreground});
+        circle.svg-builder-circle {
+            fill: rgb(${props => props.theme.foreground});
+        }
+        path {
+            stroke: rgb(${props => props.theme.background});
+        }
+        path.svg-stroke-primary {
+            stroke: rgb(${props => props.theme.background});
+        }
+    }
+    svg:hover {
+      cursor: pointer;
+        height: 32px;
+        fill: rgb(${props => props.theme.background});
+        circle.svg-builder-circle {
+            fill: rgb(${props => props.theme.foregroundB});
+        }
+    }
+    svg.hollow:hover {
+        height: 32px;
+        fill: rgb(${props => props.theme.foregroundB});
+        circle.svg-builder-circle {
+            fill: rgb(${props => props.theme.foregroundB});
+        }
+        path {
+            fill: rgb(${props => props.theme.foregroundB});
+        }
+        path.svg-stroke-primary {
+            fill: rgb(${props => props.theme.foregroundB});
+        }
+    }
+
     @media screen and (max-width: 720px) {
     
         margin-top: 1rem;
@@ -22,9 +57,9 @@ const Anchor = styled.a`
 
 `;
 
-function IconAnchor({ src, href, alt, target, rel }) {
+function IconAnchor({ src, href, alt, target, rel, children }) {
   return (
-    <Anchor href={href} target={target} rel={rel}><Icon src={src} alt={alt}/></Anchor>
+    <Anchor href={href} target={target} rel={rel}>{ children }</Anchor>
   );
 }
 
