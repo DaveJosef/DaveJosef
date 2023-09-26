@@ -7,8 +7,7 @@ import ReadMoreButton from '../../components/ReadMoreButton/ReadMoreButton';
 import { useState } from 'react';
 import Section from '../../components/Section/Section';
 import styled from 'styled-components';
-import { useScroll, useMotionValueEvent, useAnimate, useInView } from 'framer-motion';
-import { useRef } from 'react';
+import { useAnimate, useInView } from 'framer-motion';
 import { useEffect } from 'react';
 
 const ProjectsList = styled.ul`
